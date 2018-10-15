@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hautec.edu.entity.User">
+	<insert id="insert" keyColumn="id" keyProperty="id" useGeneratedKeys="true" parameterType="com.hautec.edu.entity.User">
+	<!-- 通过后面的 找到column 把值传递给 property -->	
+	<!-- 这个是插入数据 -->
+	insert into t_user (username,password)values(#{username},#{password})
+	insert into t-user (username,password)values(#{username},#{password})
+	
+	</insert>
+	
+	<update id="update" parameterType="com.hautec.edu.entity.User">
+	 update t_user set username = #{username} where id = #{id}
+	 update t_user set uesrname = #{username} where id = #{id}
+	 
+	</update>
+	<delete id="delete" parameterType="long">
+		delete  from t_user where id=#{id324} 
+		<!-- 不是基本的参数类型  比如对于long类型的  parameterType="long"  它的ID可以随便写 -->
+	
+	</delete>
+	
+	
+	<select id="getUserById" parameterType="long" resultType="com.hautec.edu.entity.User">
+	
+		select * from t_user where id =#{id}
+	
+	</select>
+	<select id="getAllUser" resultType="com.hautec.edu.entity.User">
+	
+		select * from t_user
+	
+	</select>
+</mapper>
+
