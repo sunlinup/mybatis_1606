@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- mybatis的配置 -->
+<configuration>
+	<!-- 引入db.properties配置文件 -->
+	<properties resource="db.properties" />
+
+	<!-- 为类型添加别名 -->
+	<typeAliases>
+		<typeAlias type="com.huatec.edu.mobileshop.entity.Member" alias="Member"/>
+	</typeAliases>
+	
+	<environments default="default">
+		<!-- 一个environment代表一个数据库环境 -->
+		<environment id="default">
+			<!-- 事务管理 -->
+			<transactionManager type="JDBC" />
+			<!-- 数据库连接池 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="com/huatec/edu/mobileshop/entity/MemberMapper.xml"/>
+	</mappers>
+</configuration>
